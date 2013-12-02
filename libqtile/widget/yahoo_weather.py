@@ -61,6 +61,8 @@ class YahooWeather(base._TextBox):
     def _configure(self, qtile, bar):
         base._TextBox._configure(self, qtile, bar)
         self.add_defaults(YahooWeather.defaults)
+        # Initial request
+        self.wx_updater()
         self.timeout_add(self.update_interval, self.wx_updater)
 
     def button_press(self, x, y, button):
